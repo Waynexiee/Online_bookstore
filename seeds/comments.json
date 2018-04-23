@@ -1,0 +1,24 @@
+[
+  {
+    "_id":"7b7997a2-c0d2-4f8c-b28a-6a1d4b5a6310",
+    "creater": {
+      "username":"Phil Barresi",
+      "_id":"7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310"
+    },
+    "book_id": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b631a",
+    "content": "It's awesome!",
+    "rate": 4.0,
+    "created_time": "2018-03-12"
+  },
+  {
+    "_id":"7b7997a2-c0d2-4f8c-b28a-6a1d4b5a6316",
+    "creater": {
+      "username":"Phil Barress",
+      "_id":"7b7997a2-c0d2-4f8c-b27a-6a1d4b4b6310"
+    },
+    "book_id": "7b7997a2-c0d2-4f8c-b27a-6a2d4b5b631a",
+    "content": "It's bad!",
+    "rate": 1.0,
+    "created_time": "2018-03-12"
+  }
+]

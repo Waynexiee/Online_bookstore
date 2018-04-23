@@ -1,0 +1,27 @@
+{
+  "name": "online_bookstore",
+  "version": "1.0.0",
+  "description": "Final project for CS546",
+  "main": "app.js",
+  "scripts": {
+    "seed": "node ./tasks/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Greyson, Michael, Wayne",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.5",
+    "mongodb": "^2.1.18",
+    "node-uuid": "^1.4.7",
+    "node-sass": "^4.8.3",
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.1",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "request-promise": "^2.0.0"
+  }
+}

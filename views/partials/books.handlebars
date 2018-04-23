@@ -1,0 +1,15 @@
+<h1>Your Pragmatic Catalog</h1>
+<ul class="people_list">
+	{{#each product}}
+		<div class="entry">
+			<img src="{{this.picture_url}}" alt="{{ this.title }}" height="100" width="100">
+			<h3>{{ this.title }}</h3>
+			<p>{{this.description}}</p>
+			<div class="price_line">
+				<span class="price">{{this.price}}</span>
+				<button type="button">Add</button>
+			</div>
+		</div>
+	{{/each}}
+</ul>
+
