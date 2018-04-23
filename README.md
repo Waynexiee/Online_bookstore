@@ -12,3 +12,4 @@ Writen by
 4. seed 
 5. npm start
 6. visit "http://localhost:3000/"
+7. Test Account: username: batman, password: 123456
