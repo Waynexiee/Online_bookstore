@@ -3,7 +3,6 @@ const router = express.Router();
 const data = require("../data/users");
 const bcrypt = require("bcrypt");
 const path = require("path");
-const app = express();
 router.get("/", async (req, res) => {
   if (req.cookies && req.cookies.AuthCookie) {
     res.redirect('/profile');

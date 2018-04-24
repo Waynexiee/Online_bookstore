@@ -1,12 +1,9 @@
-/**
- * Created by xiewangzhi on 2018/4/21.
- */
 const express = require("express");
 const router = express.Router();
 const books = require("../data/books");
 const path = require("path");
 router.get("/", async (req, res) => {
-  res.render('partials/books', {product: await books.getAllBooks(), logged:  (req.cookies && req.cookies.AuthCookie)});
+  res.render('partials/books', {product: await books.getAllBooks(), logged: (req.cookies && req.cookies.AuthCookie)});
 });
 
 module.exports = router;
