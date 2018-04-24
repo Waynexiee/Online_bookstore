@@ -21,6 +21,22 @@ let exportedMethods = {
       return null;
     }
     return user;
+  },
+
+  async createNewUser(username, hashedPassword) {
+    const userCollection = await users();
+
+    const newUser = {
+      username: username,
+      hashedPassword:hashedPassword,
+      _id: uuid(),
+    };
+    const newInsertInformation = await userCollection.insertOne(newUser);
+    if (newInsertInformation.insertedCount === 0) throw "Could not add new book";
+
+    const newId = newInsertInformation.insertedId;
+
+    return await this.findById(newId);
   }
 };
 

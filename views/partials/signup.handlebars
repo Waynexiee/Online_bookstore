@@ -1,0 +1,24 @@
+{{#if messages}}
+	<p class="error">{{messages}}</p>
+{{/if}}
+<h1>Sign up</h1>
+<main>
+	<form action="/users/new" method="POST" id="login-form">
+		<label for="username">
+			USERNAME:
+		</label>
+		<input type="text" id="username" name="username"/>
+    <br>
+		<label for="password">
+			PASSWORDS:
+		</label>
+		<input type="password" id="password" name="password"/>
+		<br>
+		<label for="password_confirmation">
+			PASSWORDS CONFIRMATION:
+		</label>
+		<input type="password" id="password_confirmation" name="password_confirmation"/>
+		<br>
+		<button type="submit">Submit</button>
+	</form>
+</main>

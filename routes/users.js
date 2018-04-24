@@ -11,6 +11,31 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/new", async (req, res) => {
+  res.render('partials/signup', {});
+});
+
+router.post("/new", async (req, res) => {
+  const userReqData = req.body;
+  if (userReqData.username && userReqData.password && userReqData.password_confirmation) {
+    const username = userReqData.username;
+    const password = userReqData.password;
+    const passwordConfirmation = userReqData.password_confirmation;
+    if (password != passwordConfirmation) {
+      res.render('partials/signup', {messages: "Please confirm passwords you input are same!"});
+    } else if (await data.findByUsername(username)) {
+      res.render('partials/signup', {messages: "Your username has existed, please have another one!"});
+    } else {
+      bcrypt.hash(password, 2, function (err, hash) {
+        data.createNewUser(username, hash);
+      });
+      res.render("partials/signin", {messages: "You have successfully created your account, please log in."});
+    }
+  } else {
+    res.render('partials/signup', {});
+  }
+});
+
 router.get("/profile", async (req, res) => {
   if (req.cookies && req.cookies.AuthCookie) {
     const user = await data.findById(req.cookies.AuthCookie);
