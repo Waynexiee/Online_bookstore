@@ -18,6 +18,9 @@ const exportedMethods = {
 
   async addBook(title, price, author, stock, picture_url, description) {
     if (typeof title !== "string") throw "No title provided";
+    if (typeof author !== "string") throw "No author provided";
+    if (typeof picture_url !== "string") throw "No picture url provided";
+    if (typeof description !== "string") throw "No description provided";
 
     const bookCollection = await books();
 
@@ -31,13 +34,17 @@ const exportedMethods = {
       description: description
     };
     const newInsertInformation = await bookCollection.insertOne(newBook);
-    if (newInsertInformation.insertedCount === 0) throw "Could not add new book";
+    if (newInsertInformation.insertedCount === 0) return null;
 
     const newId = newInsertInformation.insertedId;
 
     return await this.getBookById(newId);
-  }
+  },
 
+  async searchByTitle(title) {
+    const bookCollection = await books();
+    return bookCollection.find({title: new RegExp(`.*${title}.*`, 'i')}).toArray();
+  }
 
 };
 

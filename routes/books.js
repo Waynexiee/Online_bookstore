@@ -6,4 +6,8 @@ router.get("/", async (req, res) => {
   res.render('partials/books', {product: await books.getAllBooks(), logged: (req.cookies && req.cookies.AuthCookie)});
 });
 
+router.get("/search", async (req, res) => {
+  const bookTitle = req.query.search_word;
+  res.render('partials/books', {product: await books.searchByTitle(bookTitle), logged: (req.cookies && req.cookies.AuthCookie)});
+});
 module.exports = router;

@@ -1,4 +1,16 @@
 <h1>Your Pragmatic Catalog</h1>
+
+<div class="col-lg-6">
+	<form action="/search" method="GET">
+		<div class="input-group">
+			<input type="text" class="form-control" id="search_word" name="search_word" placeholder="Search for...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="submit">Search</button>
+			</span>
+		</div>
+	</form>
+</div>
+
 <ul class="people_list">
 	{{#each product}}
 		<div class="entry">

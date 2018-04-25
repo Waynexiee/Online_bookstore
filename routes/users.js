@@ -40,7 +40,7 @@ router.get("/profile", async (req, res) => {
   if (req.cookies && req.cookies.AuthCookie) {
     const user = await data.findById(req.cookies.AuthCookie);
     if (user) {
-      res.render("partials/profile", {profile: user.profile});
+      res.render("partials/profile", {profile: user.profile, logged: (req.cookies && req.cookies.AuthCookie)});
     } else {
       res.status(404).json({ messages: "Cannot find you!" });
     }
