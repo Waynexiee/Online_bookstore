@@ -296,3 +296,11 @@ p.error {
     margin-left: 40px;
     background-color: #aaaa00;
 }
+
+label[for=description] {
+    float: left;
+}
+
+#search {
+    margin-top: 0;
+}
