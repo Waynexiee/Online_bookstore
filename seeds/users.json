@@ -1,26 +1,24 @@
 [
   {
     "_id":"7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6318",
-    "sessionId":"b3988882-627f-4c59-8d5d-54b7a43b030e",
     "hashedPassword":"$2a$04$Pfar9wjmmik1kb8u8aQqpubuCAE6VufgCZmocehQvTjpPPTalHWWO",
     "username": "batman",
+    "emailAddress": "123@example.com",
     "profile":{
       "name":"Phil Barresi",
       "address": "1 Castle Point Terrace, Hoboken, NJ",
-      "email_address": "123@example.com",
       "phone_number": 123456789,
       "admin": true
     }
   },
   {
     "_id":"7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6319",
-    "sessionId":"b3988882-627f-4c59-8d5d-54b7a43b030a",
     "hashedPassword":"$2a$04$pNFzS464I3fiZT2Yvbbc7evhORPerlP2o1q.8ShuhpFHDa2AIU1ju",
     "username": "superman",
+    "emailAddress": "1234@example.com",
     "profile":{
       "name":"Andrew Barresi",
       "address": "2 Castle Point Terrace, Hoboken, NJ",
-      "email_address": "1234@example.com",
       "phone_number": 125456789,
       "admin": false
     }

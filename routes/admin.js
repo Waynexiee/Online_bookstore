@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const newBook = req.body;
-  const result = await books.addBook(newBook.title, newBook.price, newBook.author, newBook.stock, newBook.picture_url, newBook.description);
+  const result = await books.addBook(newBook.title, newBook.price, newBook.author, newBook.stock, newBook.category, newBook.picture_url, newBook.description);
   if (result) {
     res.render('partials/books', {product: await books.getAllBooks(), logged: (req.cookies && req.cookies.AuthCookie), messages: "Add book successfully!"});
   } else {

@@ -10,17 +10,20 @@
   "author": "Greyson, Michael, Wayne",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.5",
+    "mailgun-js": "^0.17.0",
     "mongodb": "^2.1.18",
-    "node-uuid": "^1.4.7",
     "node-sass": "^4.8.3",
-    "bcrypt": "^1.0.3",
-    "bluebird": "^3.5.1",
-    "cookie-parser": "^1.4.1",
-    "ejs": "^2.4.1",
+    "node-uuid": "^1.4.7",
+    "nodemailer": "^4.6.4",
+    "randomstring": "^1.1.5",
     "request-promise": "^2.0.0"
   }
 }

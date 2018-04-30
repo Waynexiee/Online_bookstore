@@ -11,12 +11,11 @@ const exportedMethods = {
   async getBookById(id) {
     const bookCollection = await books();
     const book = await bookCollection.findOne({ _id: id });
-
     if (!book) throw "book is not found";
     return book;
   },
 
-  async addBook(title, price, author, stock, picture_url, description) {
+  async addBook(title, price, author, stock, category, picture_url, description) {
     if (typeof title !== "string") throw "No title provided";
     if (typeof author !== "string") throw "No author provided";
     if (typeof picture_url !== "string") throw "No picture url provided";
@@ -30,6 +29,7 @@ const exportedMethods = {
       author: author,
       _id: uuid(),
       stock: stock,
+      category: category,
       picture_url: picture_url,
       description: description
     };

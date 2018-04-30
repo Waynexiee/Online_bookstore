@@ -11,12 +11,14 @@ body, body > p, body > ol, body > ul, body > td {
   color: #282;
   text-align: center;
 }
+
 #banner img {
   position: absolute;
   top: 0;
   left: 0;
   width: 192px;
 }
+
 #notice {
   color: #000 !important;
   border: 2px solid red;

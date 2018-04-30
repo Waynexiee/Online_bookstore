@@ -5,6 +5,7 @@
     "author": "Greyson Strouse",
     "_id": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6310",
     "stock": 20,
+    "category": "Fiction",
     "picture_url": "https://images-na.ssl-images-amazon.com/images/I/51spVw9pGKL._SX348_BO1,204,203,200_.jpg",
     "description": "AmericaWorks is going to save America. Let's make America Work and save ourselves from the current crises. Just have to hope that nothing bad happens, because this is a great idea. I love this idea. -FU"
   },
@@ -14,6 +15,7 @@
     "author": "Michael Fang",
     "_id": "7b7997a2-c0d2-4f8c-b27a-6a1d4b5b6312",
     "stock": 20,
+    "category": "Documentation",
     "picture_url": "https://images-na.ssl-images-amazon.com/images/I/51S2iJN3DYL._AA300_.jpg",
     "description": "AmericaWorks is going to save America. Let's make America Work and save ourselves from the current crises. Just have to hope that nothing bad happens, because this is a great idea. I love this idea. -FU"
   }
