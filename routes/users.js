@@ -23,13 +23,14 @@ router.post("/new", async (req, res) => {
     const password = userReqData.password;
     const passwordConfirmation = userReqData.password_confirmation;
     const emailAddress = userReqData.email_address;
+    const phoneNumber = userReqData.phone_number;
     if (password != passwordConfirmation) {
       res.render('partials/signup', {messages: "Please confirm passwords you input are same!"});
     } else if (await data.findByUsername(username)) {
       res.render('partials/signup', {messages: "Your username has existed, please have another one!"});
     } else {
       bcrypt.hash(password, 2, function (err, hash) {
-        data.createNewUser(username, hash, emailAddress);
+        data.createNewUser(username, hash, emailAddress, phoneNumber);
       });
       res.render("partials/signin", {messages: "You have successfully created your account, please log in."});
     }
@@ -82,6 +83,7 @@ router.get("/password_email", async (req, res) => {
     const token = await data.saveToken(randomstring.generate(), user._id);
     const url = data.createURL(user._id, token);
     await data.sendPasswordResetMail(emailAddress, url);
+
     res.render('partials/password_reset', {messages: "Password Reset Email has been sent to your Email Box!"});
   } else {
     res.render('partials/password_reset', {messages: "There is no such user."});
@@ -106,12 +108,38 @@ router.post("/password", async (req, res) => {
   }
 });
 
-
-
 router.get("/password_reset", async (req, res) => {
   res.render('partials/password_reset', {});
 });
 
+router.get("/login_sms", async (req, res) => {
+  res.render('partials/login_sms', {});
+});
+
+router.get("/phone_number", async (req, res) => {
+  const userReqData = req.query;
+
+  const id = await data.hasPhoneNumber(userReqData.phone_number);
+  if (id) {
+    const code = await data.createNewCode(id);
+    await data.sendPasswordResetSMS(userReqData.phone_number,code);
+    res.render('partials/login_sms_form', {id: id});
+  } else {
+    res.render('partials/login_sms', {messages: "Your account doesn't exist!"});
+  }
+});
+
+router.post("/login_sms", async (req, res) => {
+  const userReqData = req.body;
+  const id = userReqData.id;
+  const user = await data.findById(id);
+  if (user.code === parseInt(userReqData.code)) {
+    res.cookie('AuthCookie', user._id , { expires: new Date(Date.now() + 900000) });
+    res.redirect('/');
+  } else {
+    res.render('partials/login_sms_form', {id: id, messages: "Your code is wrong, please input a correct one!"});
+  }
+});
 
 
 module.exports = router;

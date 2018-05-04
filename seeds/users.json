@@ -7,7 +7,7 @@
     "profile":{
       "name":"Phil Barresi",
       "address": "1 Castle Point Terrace, Hoboken, NJ",
-      "phone_number": 123456789,
+      "phone_number": 6099971768,
       "admin": true
     }
   },
@@ -19,7 +19,7 @@
     "profile":{
       "name":"Andrew Barresi",
       "address": "2 Castle Point Terrace, Hoboken, NJ",
-      "phone_number": 125456789,
+      "phone_number": 123456789,
       "admin": false
     }
   }

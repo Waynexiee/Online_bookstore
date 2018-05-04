@@ -1,7 +1,7 @@
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
 const uuid = require("node-uuid");
-
+const rn = require('random-number');
 let exportedMethods = {
   async findById(id) {
     const userCollection = await users();
@@ -23,13 +23,16 @@ let exportedMethods = {
     return user;
   },
 
-  async createNewUser(username, hashedPassword, emailAddress) {
+  async createNewUser(username, hashedPassword, emailAddress, phoneNumber) {
     const userCollection = await users();
 
     const newUser = {
       username: username,
       hashedPassword: hashedPassword,
       emailAddress: emailAddress,
+      profile: {
+        phone_number: phoneNumber
+      },
       _id: uuid(),
     };
     const newInsertInformation = await userCollection.insertOne(newUser);
@@ -82,6 +85,20 @@ let exportedMethods = {
     });
   },
 
+  async sendPasswordResetSMS(number, body) {
+    const accountSid = 'ACc543b560a18c23013ba916390d8e419f'; // Your Account SID from www.twilio.com/console
+    const authToken = 'ba13f474ef6db0c56a9325c269827b56';   // Your Auth Token from www.twilio.com/console
+
+    const twilio = require('twilio');
+    const client = new twilio(accountSid, authToken);
+
+    client.messages.create({
+      body: body,
+      to: number,  // Text this number
+      from: '+18564062423' // From a valid Twilio number
+    }).then((message) => console.log(message.sid));
+  },
+
   async updatePassword(id, hash) {
     const userCollection = await users();
     const result = userCollection.updateOne(
@@ -89,6 +106,35 @@ let exportedMethods = {
       {$set: {"hashedPassword": hash}}
     );
     return result.modifiedCount === 1;
+  },
+
+  async hasPhoneNumber(number) {
+    const userCollection = await users();
+    const user = await userCollection.findOne({ "profile.phone_number": parseInt(number) });
+    if (user) {
+      return user._id;
+    } else {
+      return false;
+    }
+  },
+
+  async createNewCode(id) {
+    const options = {
+      min:  1000
+      , max:  9999
+      , integer: true
+    };
+    const code = rn(options)
+    const userCollection = await users();
+    const result = await userCollection.updateOne(
+      { "_id" : id },
+      { $set: { "code": code} }
+    );
+    if (result.modifiedCount > 0) {
+      return code;
+    } else {
+      return null;
+    }
   }
 };
 

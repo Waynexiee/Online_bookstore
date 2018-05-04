@@ -23,7 +23,10 @@
     "node-sass": "^4.8.3",
     "node-uuid": "^1.4.7",
     "nodemailer": "^4.6.4",
+    "random-number": "0.0.9",
     "randomstring": "^1.1.5",
-    "request-promise": "^2.0.0"
+    "request-promise": "^2.0.0",
+    "save": "^2.3.2",
+    "twilio": "^3.16.0"
   }
 }
