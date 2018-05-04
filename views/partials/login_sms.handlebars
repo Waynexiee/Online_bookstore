@@ -1,0 +1,18 @@
+{{#if messages}}
+	<p class="error">{{messages}}</p>
+{{/if}}
+<h1>SMS Login</h1>
+<main>
+	<form action="/users/phone_number" method="GET" id="login-form">
+		<div class="form-group row">
+			<label for="phone_number" class="col-sm-2 col-form-label">
+				Cell Phone Number:
+			</label>
+			<div class="col-sm-10">
+				<input type="tel" id="phone_number" name="phone_number"/>
+			</div>
+		</div>
+		<button type="submit">Get Message</button>
+	</form>
+</main>
+

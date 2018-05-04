@@ -1,0 +1,16 @@
+<h1>SMS Login</h1>
+<main>
+	<form action="/users/login_sms" method="POST" id="login-form">
+		<input type="hidden" name="id" value={{id}}>
+		<div class="form-group row">
+			<label for="code" class="col-sm-2 col-form-label">
+				CODE:
+			</label>
+			<div class="col-sm-10">
+				<input type="number" id="code" name="code"/>
+			</div>
+		</div>
+		<button type="submit">Log in</button>
+	</form>
+</main>
+
