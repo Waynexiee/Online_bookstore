@@ -1,0 +1,32 @@
+<h1>Your Pragmatic Catalog</h1>
+
+
+<ul class="people_list">
+		<div class="entry">
+			<h3>{{ book.title }}</h3>  <span class="badge badge-secondary">{{book.category}}</span>
+            <input id="image" type="image" alt="picture" src="{{book.picture_url}}" alt="{{ book.title }}" height="100" width="100">
+			<p>{{book.description}}</p>
+			<div class="price_line">
+				<span class="price">${{book.price}}</span>
+				<button type="button" data-id="{{book._id}}" class="add_to_cart">Add</button>
+			</div>
+		</div>
+		<br>
+</ul>
+
+<h3>Comments</h3> 
+
+
+
+<ul class="list">
+    {{#each comment}}
+    <li>{{this.username}} Says: {{this.comment}} Date:{{this.date}}</li>
+    {{/each}}
+</ul>
+
+<form action="/comment/{{book._id}}" method="POST" class="row">
+		<label id="comment">comments:</label>
+  		<textarea name="comment" id="comment" rows="4" cols="40">
+  		</textarea>
+    	<button type="submit">Submit</button>
+</form>

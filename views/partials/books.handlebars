@@ -12,7 +12,9 @@
 <ul class="people_list">
 	{{#each product}}
 		<div class="entry">
-			<img src="{{this.picture_url}}" alt="{{ this.title }}" height="100" width="100">
+			<form action="/comment/{{this._id}}" method="GET" class="row">
+				<input id="image" type="image" alt="picture" src="{{this.picture_url}}" alt="{{ this.title }}" height="100" width="100">
+			</form>
 			<h3>{{ this.title }}</h3>  <span class="badge badge-secondary">{{this.category}}</span>
 			<p>{{this.description}}</p>
 			<div class="price_line">
