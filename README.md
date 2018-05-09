@@ -2,7 +2,7 @@
 Final project for CS546
 Writen by 
 * Greyson Strouse
-* Michael Fangy
+* Michael Fang
 * Wayne Xie
 
 ##Set up
