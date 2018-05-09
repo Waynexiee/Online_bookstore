@@ -1,5 +1,6 @@
 const mongoCollections = require("../config/mongoCollections");
 const users = mongoCollections.users;
+const books = mongoCollections.books;
 const uuid = require("node-uuid");
 const rn = require('random-number');
 let exportedMethods = {
@@ -120,11 +121,11 @@ let exportedMethods = {
 
   async createNewCode(id) {
     const options = {
-      min:  1000
-      , max:  9999
-      , integer: true
+      min:  1000,
+      max:  9999,
+      integer: true
     };
-    const code = rn(options)
+    const code = rn(options);
     const userCollection = await users();
     const result = await userCollection.updateOne(
       { "_id" : id },
@@ -135,7 +136,8 @@ let exportedMethods = {
     } else {
       return null;
     }
-  }
+  },
+
 };
 
 

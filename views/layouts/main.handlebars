@@ -8,29 +8,34 @@
 </head>
 
 <body>
-	<div id="banner">
-		<img src="/public/images/logo.svg" alt='The Pragmatic Bookshelf'/>
-	</div>
-	<div id="columns">
-		<div id="side">
-			<div id="cart">
+  <main>
+		<div id="banner">
+			<img src="/public/images/logo.svg" alt='The Pragmatic Bookshelf'/>
+		</div>
+		<div id="columns">
+			<div id="side">
+				<div id="cart">
+				</div>
+				{{#if logged}}
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/order/index">Orders</a></li>
+						<li><a href="/admin">Products</a></li>
+					</ul>
+					<a href="/users/logout" class="btn btn-default btn-sm">Log out</a>
+				{{else}}
+					<a href="/users/" class="btn btn-default btn-sm">Log in</a>
+					<a href="/users/new" class="btn btn-default btn-sm">Sign up</a>
+				{{/if}}
 			</div>
-			{{#if logged}}
-			<ul>
-				<li>Orders</li>
-				<li><a href="/admin">Products</a></li>
-				<li>Users</li>
-			</ul>
-			<a href="/users/logout" class="btn btn-default btn-sm">Log out</a>
-			{{else}}
-			<a href="/users/" class="btn btn-default btn-sm">Log in</a>
-			<a href="/users/new" class="btn btn-default btn-sm">Sign up</a>
-	    {{/if}}
+			<div id="main">
+				{{{body}}}
+			</div>
 		</div>
-		<div id="main">
-			{{{body}}}
-		</div>
-	</div>
+	</main>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/public/javascript/cart.js"></script>
 </body>
+
 </html>
 

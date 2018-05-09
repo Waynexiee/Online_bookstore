@@ -1,0 +1,26 @@
+<div id="cart">
+	<h2>Your Pragmatic Cart</h2>
+	<ul>
+		{{#each books}}
+			<li>{{ this.[0] }} &times; {{this.[1].title}}  ${{this.[1].price}}</li>
+		{{/each}}
+		<li>Total price: ${{total}}</li>
+	</ul>
+	<a href="/cart" class="btn btn-default btn-sm">Empty Cart</a>
+	<a href="/order" class="btn btn-default btn-sm">Check Out</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

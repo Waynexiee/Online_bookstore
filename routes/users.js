@@ -83,7 +83,6 @@ router.get("/password_email", async (req, res) => {
     const token = await data.saveToken(randomstring.generate(), user._id);
     const url = data.createURL(user._id, token);
     await data.sendPasswordResetMail(emailAddress, url);
-
     res.render('partials/password_reset', {messages: "Password Reset Email has been sent to your Email Box!"});
   } else {
     res.render('partials/password_reset', {messages: "There is no such user."});
@@ -118,7 +117,6 @@ router.get("/login_sms", async (req, res) => {
 
 router.get("/phone_number", async (req, res) => {
   const userReqData = req.query;
-
   const id = await data.hasPhoneNumber(userReqData.phone_number);
   if (id) {
     const code = await data.createNewCode(id);
@@ -140,6 +138,5 @@ router.post("/login_sms", async (req, res) => {
     res.render('partials/login_sms_form', {id: id, messages: "Your code is wrong, please input a correct one!"});
   }
 });
-
 
 module.exports = router;
