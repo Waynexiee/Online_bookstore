@@ -237,9 +237,7 @@ div.field, div.actions {
 label {
   display: block;
 }
-.store {
-  /* An entry in the store catalog */
-}
+
 .store h1 {
   margin: 0;
   padding-bottom: 0.5em;
@@ -250,7 +248,7 @@ label {
 .store .entry {
   overflow: auto;
   margin-top: 1em;
-  border-bottom: 1px dotted #77d;
+  border-bottom: 3px dotted #77d;
   min-height: 100px;
 }
 .store .entry img {

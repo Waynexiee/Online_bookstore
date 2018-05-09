@@ -13,13 +13,14 @@
 	{{#each product}}
 		<div class="entry">
 			<img src="{{this.picture_url}}" alt="{{ this.title }}" height="100" width="100">
-			<h3>{{ this.title }}--{{this.category}}</h3>
+			<h3>{{ this.title }}</h3>  <span class="badge badge-secondary">{{this.category}}</span>
 			<p>{{this.description}}</p>
 			<div class="price_line">
-				<span class="price">{{this.price}}</span>
+				<span class="price">${{this.price}}</span>
+				<button type="button" data-id="{{this._id}}" class="add_to_cart">Add</button>
 			</div>
-			<button type="button" data-id="{{this._id}}" class="add_to_cart">Add</button>
 		</div>
+		<br>
 	{{/each}}
 </ul>
 
