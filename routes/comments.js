@@ -8,8 +8,8 @@ const path = require("path");
 router.post("/:id", async (req, res) => {
     const userReqData = req.body;
     const user = await users.findById (req.cookies.AuthCookie);
-    console.log(user);
-    console.log(user.username);
+
+    
     const bookId = req.params.id;
     const book = await books.getBookById(bookId);
     await comments.createComment(user.username, bookId, userReqData.comment);
